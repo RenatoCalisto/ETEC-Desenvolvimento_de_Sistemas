@@ -1,0 +1,46 @@
+DELIMITER //
+
+CREATE PROCEDURE UpdateApartmentValues(IN p_condominio_codigo INT, IN p_percentual_aumento INT)
+BEGIN
+    DECLARE v_fator DECIMAL(10, 2);
+    
+    SET v_fator = (1 + (p_percentual_aumento / 100));
+    
+    UPDATE apartamento
+    SET valor = valor * v_fator
+    WHERE codigo_cond = p_condominio_codigo;
+END;
+//
+
+DELIMITER ;
+
+
+
+CALL UpdateApartmentValues(1, 10);
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE EfetuarCompra(IN p_rg_comprador VARCHAR(15), IN p_numero_ap VARCHAR(5))
+BEGIN
+    DECLARE v_prop_ap_id INT;
+    
+    -- Obter o ID do proprietário a partir do RG fornecido
+    SELECT prop_ap_id INTO v_prop_ap_id
+    FROM proprietario_apartamento
+    WHERE rg_prop = p_rg_comprador AND numero_ap = p_numero_ap;
+    
+    -- Atualizar o apartamento com o novo proprietário
+    UPDATE proprietario_apartamento
+    SET rg_prop = p_rg_comprador
+    WHERE prop_ap_id = v_prop_ap_id;
+END;
+//
+
+DELIMITER ;
+
+
+
+
+CALL EfetuarCompra('12345678-0', 'a101');
