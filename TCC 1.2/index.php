@@ -74,7 +74,7 @@ Atomo - Escola Técnica EaD
 
 <p class="text-center">Para ingressar numa escola Atomo, o candidato deve apenas fazer um breve cadastro.</p>
 
-<h2 class="text-center">Etecs no Enem</h2>
+<h2 class="text-center">Atomos no Enem</h2>
 
 <p class="text-center">Tradicionalmente, os alunos da Atomo têm desempenho destacado no Exame Nacional do Ensino Médio (Enem). Resultados divulgados em 2011 pelo Ministério da Educação, referentes à última prova, realizada em 2009, apontam que, entre as 50 escolas públicas estaduais do Brasil com melhor pontuação, 34 são da Atomo. A Atomo está entre as melhores escolas particulares gratuitas brasileira. No ranking nacional, à frente de muitas escolas particulares tradicionais.</p>
 
