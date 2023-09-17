@@ -1,0 +1,62 @@
+USE locar;
+
+CREATE TABLE filial
+(
+	codigo_filial int(15) unsigned not null auto_increment
+comment 'codigo da filial',
+	nome varchar(50) not null
+comment 'nome da filial',
+	endereco varchar(200) not null
+comment 'endereco da filial',
+	telefone int(10) unsigned
+comment 'telefone da filial',
+	PRIMARY KEY (codigo_filial)
+);
+
+CREATE TABLE endereco
+(
+	logradouro varchar (50) not null
+comment 'logradouro do endereco',
+	numero int(10) unsigned
+comment 'numero do endereco',
+	bairro varchar(40)
+comment 'bairro do endereco',
+	cidade varchar(50) not null
+comment 'cidade do endereco',
+	uf varchar(20) not null
+comment 'unidade federativa do endereco',
+	cep int(15) unsigned
+comment 'cep do endereco',
+	CONSTRAINT fk_filial_endereco FOREIGN KEY(endereco) REFERENCES filial (endereco)
+);
+
+CREATE TABLE veiculo
+(
+	codigo_veiculo int(30) unsigned not null auto_increment
+comment 'codigo do veiculo',
+	placa varchar(10)
+comment 'placa do veiculo',
+	ano int(4) unsigned not null
+comment 'ano do veiculo',
+	modelo varchar(70) not null
+comment 'modelo do veiculo',
+	tipo_de_combustivel varchar(20) not null
+comment 'tipo de combustivel do veiculo',
+	chassis varchar(17) not null
+comment 'chassis do veiculo',
+	cor varchar(25) not null
+comment 'cor do veiculo',
+	fabricante varchar(20) not null
+comment 'fabricante do veiculo',
+	PRIMARY KEY (codigo_veiculo)
+);
+
+CREATE TABLE fabricante
+(
+	codigo_fabricante varchar(20) auto_increment
+comment 'codigo do fabricante',
+	nome varchar(20) not null
+comment 'nome do fabricante',
+	PRIMARY KEY (codigo_fabricante),
+	CONSTRAINT fk_veiculo_fabricante FOREIGN KEY (fabricante) REFERENCES veiculo (fabricante)
+);

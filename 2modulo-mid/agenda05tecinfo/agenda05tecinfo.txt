@@ -1,0 +1,70 @@
+Para ver todos os apartamentos:
+select * from apartamento
+Temos 10: sendo 2 cobertura, 8 padrao
+
+Para adicionar o valor dos apartamentos:
+alter table apartamento
+add column valor double (10,2);
+como esqueci de colocar o defaut, entrei nas configurações do apartamento e coloquei: Default/Expression 0 com o comando:
+ALTER TABLE `imobiliaria`.`apartamento` 
+CHANGE COLUMN `valor` `valor` DOUBLE(10,2) NULL DEFAULT 0 ;
+
+
+Para adicionar os valores usei os comandos:
+
+
+update apartamento
+set valor = '100000.00'
+where numero = '1'
+limit 1;
+
+update apartamento
+set valor = '115000.00'
+where numero = '2'
+limit 1;
+
+update apartamento
+set valor = '125000.00'
+where numero = '3'
+limit 1;
+
+update apartamento
+set valor = '135000.00'
+where numero = '4'
+limit 1;
+
+update apartamento
+set valor = '150000.00'
+where numero = '5'
+limit 1;
+
+update apartamento
+set valor = '200000.00'
+where numero = '6'
+limit 1;
+
+update apartamento
+set valor = '215000.00'
+where numero = '7'
+limit 1;
+
+update apartamento
+set valor = '225000.00'
+where numero = '8'
+limit 1;
+
+update apartamento
+set valor = '235000.00'
+where numero = '9'
+limit 1;
+
+update apartamento
+set valor = '250000.00'
+where numero = '10'
+limit 1;
+
+
+Para conferir:
+select * from apartamento
+
+Tudo OK

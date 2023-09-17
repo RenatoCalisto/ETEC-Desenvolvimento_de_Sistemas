@@ -1,0 +1,154 @@
+(**OBS: nao adicionei dados para matricula por ser auto_increment**)
+
+insert into sindico
+(nome, endereco, telefone)
+values
+('renato', 'rua vitorio', '34776334')
+
+select * from sindico;
+(**PARA TESTAR SE DEU CERTO**)
+
+insert into sindico
+(nome, endereco, telefone)
+values
+('rafael', 'rua santos', '991873987')
+
+
+
+(**OBS: nao adicionei dados para codigo_proprietario por ser auto_increment**)
+
+insert into proprietario
+(rg, nome, telefone, email)
+values
+('01', 'jose', '001', 'jose@gmail.com')
+
+select * from proprietario;
+(**PARA TESTAR SE DEU CERTO**)
+
+insert into proprietario
+(rg, nome, telefone, email)
+values
+('02', 'joao', '002', 'joao@gmail.com'),
+('03', 'antonio', '003', 'antonio@gmail.com'),
+('04', 'francisco', '004', 'francisco@gmail.com'),
+('05', 'carlos', '005', 'carlos@gmail.com'),
+('06', 'paulo', '006', 'paulo@gmail.com'),
+('07', 'pedro', '007', 'pedro@gmail.com'),
+('08', 'lucas', '008', 'lucas@gmail.com'),
+('09', 'luiz', '009', 'luiz@gmail.com'),
+('10', 'marcos', '010', 'marcos@gmail.com');
+
+select * from proprietario;
+(**PARA TESTAR SE DEU CERTO**)
+
+
+
+(**OBS: nao adicionei dados para codigo_condominio por ser auto_increment**)
+
+insert into condominio
+(nome_condominio, endereco_condominio)
+values
+('nc01', 'rua jose'),
+('nc02', 'rua joao');
+
+select * from condominio;
+(**PARA TESTAR SE DEU CERTO**)
+
+
+
+
+update sindico
+set codigo_condominio = '1'
+where matricula = '1';
+
+select * from sindico;
+(**PARA TESTAR SE DEU CERTO**)
+
+update sindico
+set codigo_condominio = '2'
+where matricula = '2';
+
+select * from sindico;
+(**PARA TESTAR SE DEU CERTO**)
+
+
+
+insert into apartamento
+(numero, tipo, codigo_condominio, numero_garagem)
+values
+('01', 'cobertura', '1', '1'),
+('02', 'padrao', '1', '2'),
+('03', 'padrao', '1', '3'),
+('04', 'padrao', '1', '4'),
+('05', 'padrao', '1', '5'),
+('06', 'cobertura', '2', '6'),
+('07', 'padrao', '2', '7'),
+('08', 'padrao', '2', '8'),
+('09', 'padrao', '2', '9'),
+('10', 'padrao', '2', '10');
+
+select * from apartamento;
+(**PARA TESTAR SE DEU CERTO**)
+
+
+
+alter table garagem
+add column vagas int;
+
+(**REFRESH PARA TESTAR SE DEU CERTO**)
+
+alter table garagem
+add column vagacoberta varchar(5);
+
+(**REFRESH PARA TESTAR SE DEU CERTO**)
+
+
+
+(**OBS: nao adicionei dados para codigo_apartamento_proprietario por ser auto_increment**)
+
+insert into proprietario_apartamento
+(codigo_proprietario, numero_apartamento)
+values
+('1', '1'),
+('2', '2'),
+('3', '3'),
+('4', '4'),
+('5', '5'),
+('6', '6'),
+('7', '7'),
+('8', '8'),
+('9', '9'),
+('10', '10');
+
+select * from proprietario_apartamento;
+(**PARA TESTAR SE DEU CERTO**)
+
+
+
+update proprietario_apartamento
+set codigo_proprietario = '8'
+where codigo_apartamento_proprietario = '9'
+
+select * from proprietario_apartamento;
+(**PARA TESTAR SE DEU CERTO**)
+
+update proprietario_apartamento
+set codigo_proprietario = '8'
+where codigo_apartamento_proprietario = '10'
+
+select * from proprietario_apartamento;
+(**PARA TESTAR SE DEU CERTO**)
+
+
+
+delete from proprietario_apartamento
+where codigo_apartamento_proprietario='9';
+
+select * from proprietario_apartamento;
+(**PARA TESTAR SE DEU CERTO**)
+
+delete from proprietario_apartamento
+where codigo_apartamento_proprietario='10';
+
+select * from proprietario_apartamento;
+(**PARA TESTAR SE DEU CERTO**)

@@ -1,0 +1,77 @@
+create schemas imobiliaria;
+
+
+CREATE TABLE `imobiliaria`.`proprietario` (
+  `codigo_proprietario` INT NOT NULL AUTO_INCREMENT,
+  `rg` VARCHAR(20) NOT NULL,
+  `nome` VARCHAR(45) NOT NULL,
+  `telefone` INT(15) NULL,
+  `email` VARCHAR(100) NULL,
+  PRIMARY KEY (`codigo_proprietario`),
+  UNIQUE INDEX `codigo_proprietario_UNIQUE` (`codigo_proprietario` ASC) VISIBLE,
+  UNIQUE INDEX `rg_UNIQUE` (`rg` ASC) VISIBLE,
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE);
+
+CREATE TABLE `imobiliaria`.`proprietario_apartamento` (
+  `codigo_apartamento_proprietario` INT NOT NULL AUTO_INCREMENT,
+  `codigo_proprietario` INT NOT NULL,
+  `numero_apartamento` INT NULL,
+  PRIMARY KEY (`codigo_apartamento_proprietario`),
+  UNIQUE INDEX `codigo_apartamento_proprietario_UNIQUE` (`codigo_apartamento_proprietario` ASC) VISIBLE);
+
+CREATE TABLE `imobiliaria`.`garagem` (
+  `numero` INT NOT NULL,
+  `tipo` ENUM('padrao', 'cobertura') NOT NULL,
+  PRIMARY KEY (`numero`),
+  UNIQUE INDEX `numero_UNIQUE` (`numero` ASC) VISIBLE);
+
+CREATE TABLE `imobiliaria`.`condominio` (
+  `codigo_condominio` INT NOT NULL AUTO_INCREMENT,
+  `nome_condominio` VARCHAR(45) NOT NULL,
+  `endereco_condominio` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`codigo_condominio`),
+  UNIQUE INDEX `codigo_condominio_UNIQUE` (`codigo_condominio` ASC) VISIBLE,
+  UNIQUE INDEX `nome_condominio_UNIQUE` (`nome_condominio` ASC) VISIBLE,
+  UNIQUE INDEX `endereco_condominio_UNIQUE` (`endereco_condominio` ASC) VISIBLE);
+
+CREATE TABLE `imobiliaria`.`sindico` (
+  `matricula` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(45) NOT NULL,
+  `endereco` VARCHAR(150) NOT NULL,
+  `telefone` INT NULL,
+  `codigo_condominio` INT NULL,
+  PRIMARY KEY (`matricula`),
+  UNIQUE INDEX `matricula_UNIQUE` (`matricula` ASC) VISIBLE,
+  UNIQUE INDEX `telefone_UNIQUE` (`telefone` ASC) VISIBLE,
+  INDEX `fk_codigo_condominio_idx` (`codigo_condominio` ASC) VISIBLE,
+  CONSTRAINT `fk_codigo_condominio`
+    FOREIGN KEY (`codigo_condominio`)
+    REFERENCES `imobiliaria`.`condominio` (`codigo_condominio`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+CREATE TABLE `imobiliaria`.`apartamento` (
+  `numero` INT UNSIGNED NOT NULL,
+  `tipo` ENUM('padrao', 'cobertura') NOT NULL,
+  `codigo_condominio` INT NOT NULL,
+  `numero_garagem` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`numero`),
+  INDEX `fk_codigo_condominio_idx` (`codigo_condominio` ASC) VISIBLE,
+  CONSTRAINT `fk_codigo_condominio`
+    FOREIGN KEY (`codigo_condominio`)
+    REFERENCES `imobiliaria`.`condominio` (`codigo_condominio`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_numero_garagem`
+    FOREIGN KEY ()
+    REFERENCES `imobiliaria`.`garagem` ()
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+CREATE TABLE `imobiliaria`.`apartamento` (
+  `numero` INT UNSIGNED NOT NULL,
+  `tipo` ENUM('padrao', 'cobertura') NOT NULL,
+  `codigo_condominio` INT NOT NULL,
+  `numero_garagem` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`numero`));
+

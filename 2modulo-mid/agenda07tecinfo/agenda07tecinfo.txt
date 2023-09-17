@@ -1,0 +1,10 @@
+O modelo TCP/IP é mais antigo que o modelo OSI/ISO.
+Porém, quando foi criado o OSI/ISO o TCP/IP já era comum demais para ser substituído,
+Assim, o modelo mais usado é o TCP/IP.
+
+O modelo TCP/IP tem 4 camadas, sendo elas:
+Enlace, Internet, Transporte e Aplicação
+O modelo OSI/ISO tem 7 camadas, sendo elas:
+Física, Enlace, Rede, Transporte, Sessão, Apresentação e Aplicação.
+
+No Caso do nosso colega Antônio, recomendo o modelo TCP/IP.

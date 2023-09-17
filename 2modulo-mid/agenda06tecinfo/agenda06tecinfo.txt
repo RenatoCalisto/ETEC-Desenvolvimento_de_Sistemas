@@ -1,0 +1,16 @@
+Topologia: Estrela, por ser melhor e mais avançada, pois se um cabo der problema apenas um aparelho ficará sem rede, apesar de ser mais cara, o local não é tão grande, nem tão pequeno, 20 computadores para essa topologia ficaria ótimo.
+
+Tecnologia: LAN para interligar computadores na medida que precisamos.
+
+
+
+Equipamentos: 
+Modem: para acesso à internet.
+
+Roteador: para transformar sinal de internet à cabo, para sem fio (Wi-Fi).
+Recomendo um 2,4Gh, assim terá maior alcance, 
+(5Gh é mais rápido mas com menos alcance).
+Como é uma papelaria, acho que deve suprir a demanda.
+
+Switch: para interligar os dispositivos:
+2 impressoras fiscais, 8 de rede e os 20 computadores.
